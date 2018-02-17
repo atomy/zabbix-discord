@@ -1,5 +1,5 @@
 # Overview
-This is a script for notifications to [Discord](https://discordapp.com/) issued from [Zabbix](https://www.zabbix.com/)
+This is a script for notifications to [Discord](https://discordapp.com/) issued from [Zabbix](https://www.zabbix.com/).
 It uses webhooks.
 
 # Installation
