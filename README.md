@@ -23,4 +23,4 @@ I build a regexp into the script to detect if it's either a *PROBLEM* or *OK* (n
 ```$ curl -X POST --data '{ "embeds": [{"title": "<NOTIFICATION TITLE>", "url": "<NOTIFICATION URL>", "description": "<NOTIFICATION BODY>", "type": "link", "thumbnail": {"url": "https://storage.googleapis.com/material-design/publish/material_v_12/assets/0Bx4BSt6jniD7dFBUNHdrY05jQ3c/style-logos-product-intro-definition.png"}}] }' -H "Content-Type: application/json" https://discordapp.com/api/webhooks/xxx/yyyy```
 
 ## Discord notification in action
-![Image of Discord-Notifcation(https://github.com/atomy/zabbix-discord/blob/master/doc/discord-zabbix-notification.png)
+![Image of Discord-Notifcation](https://github.com/atomy/zabbix-discord/blob/master/doc/discord-zabbix-notification.png)
