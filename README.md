@@ -2,7 +2,7 @@
 This is a script for notifications to [Discord](https://discordapp.com/) issued from [Zabbix](https://www.zabbix.com/).
 It uses webhooks.
 
-# Preqrequisits
+# Prerequisites
 - Discord Webhook [Howto Setup Discord Webhook](https://support.discordapp.com/hc/en-us/articles/228383668-Intro-to-Webhooks)
 
 # Installation
