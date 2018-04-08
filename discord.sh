@@ -14,10 +14,10 @@ CURL_TO=$(json_escape "${IN_TO}")
 CURL_SUBJECT=$(json_escape "${IN_SUBJECT}")
 CURL_BODY=$(json_escape "${IN_BODY}")
 
-if [[ "${IN_SUBJECT}" =~ ^PROBLEM:.*$ ]] ; then
+if [[ "${IN_SUBJECT}" =~ ^(PROBLEM:|Problem:).*$ ]] ; then
     echo "We received a PROBLEM!"
     HTTP_RESPONSE=`curl --write-out %{http_code} --silent --output /dev/null -X POST --data '{ "embeds": [{"title": '"${CURL_SUBJECT}"', "url": "https://zabbix.your-domain-bleh.foo/", "description": '"${CURL_BODY}"', "type": "link", "thumbnail": {"url": "http://icons.iconarchive.com/icons/paomedia/small-n-flat/96/sign-warning-icon.png"}}] }' -H "Content-Type: application/json" https://discordapp.com/api/webhooks/xxx/yyy`
-elif [[ "${IN_SUBJECT}" =~ ^OK:.*$ ]] ; then
+elif [[ "${IN_SUBJECT}" =~ ^(OK:|Resolved:).*$ ]] ; then
     echo "We received OKAY!"
     HTTP_RESPONSE=`curl --write-out %{http_code} --silent --output /dev/null -X POST --data '{ "embeds": [{"title": '"${CURL_SUBJECT}"', "url": "https://zabbix.your-domain-bleh.foo/", "description": '"${CURL_BODY}"', "type": "link", "thumbnail": {"url": "http://icons.iconarchive.com/icons/paomedia/small-n-flat/256/sign-check-icon.png"}}] }' -H "Content-Type: application/json" https://discordapp.com/api/webhooks/xxx/yyy`
 else
