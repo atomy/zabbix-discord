@@ -7,7 +7,7 @@ IN_SUBJECT=$2
 IN_BODY=$3
 
 json_escape() {
-    printf '%s' $1 | python -c 'import json,sys; print(json.dumps(sys.stdin.read()))'
+    printf '%s' "$1" | python -c 'import json,sys; print(json.dumps(sys.stdin.read()))'
 }
 
 CURL_TO=$(json_escape "${IN_TO}")
