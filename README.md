@@ -18,7 +18,8 @@ It uses webhooks.
     {ALERT.SUBJECT}
     {ALERT.MESSAGE}
     ```
-0. add media to a zabbix-user to be notified that way, probably re-configure zabbix-action
+7. add media to a zabbix-user to be notified that way, the "Send to"-field is the discord-channel name here, e.g. #zabbix.
+8. (optional) probably re-configure zabbix-action for different message-format
 
 # Additional Info
 I build a regexp into the script to detect if it's either a *PROBLEM* or *OK* (never got things like {EVENT.VALUE} working)
@@ -28,6 +29,9 @@ I build a regexp into the script to detect if it's either a *PROBLEM* or *OK* (n
 
 ## Zabbix Media type config
 ![Image of Discord-Notifcation](https://github.com/atomy/zabbix-discord/blob/master/doc/zabbix-media-type-config.png)
+
+## Zabbix User media config
+![Image of Discord-Notifcation](https://github.com/atomy/zabbix-discord/blob/master/doc/zabbix-discord-user-media-config.png)
 
 ## Discord notification in action
 ![Image of Discord-Notifcation](https://github.com/atomy/zabbix-discord/blob/master/doc/discord-zabbix-notification.png)
