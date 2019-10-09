@@ -18,13 +18,13 @@ CURL_BODY=$(json_escape "${IN_BODY}")
 
 if [[ "${IN_SUBJECT}" =~ ^(PROBLEM:|Problem:).*$ ]] ; then
     echo "We received a PROBLEM!"
-    HTTP_RESPONSE=`curl --write-out %{http_code} --silent --output /dev/null -X POST --data '{ "embeds": [{"title": '"${CURL_SUBJECT}"', "url": "'"${ZABBIX_URL}"'", "description": '"${CURL_BODY}"', "type": "link", "thumbnail": {"url": "http://icons.iconarchive.com/icons/paomedia/small-n-flat/96/sign-warning-icon.png"}}] }' -H "Content-Type: application/json" ${WEBHOOK_URL}`
+    HTTP_RESPONSE=`curl --write-out %{http_code} --silent --output /dev/null -X POST --data '{ "content": '"${CURL_SUBJECT}"', "embeds": [{"title": '"${CURL_SUBJECT}"', "url": "'"${ZABBIX_URL}"'", "description": '"${CURL_BODY}"', "type": "link", "thumbnail": {"url": "http://icons.iconarchive.com/icons/paomedia/small-n-flat/96/sign-warning-icon.png"}}] }' -H "Content-Type: application/json" ${WEBHOOK_URL}`
 elif [[ "${IN_SUBJECT}" =~ ^(OK:|Resolved:).*$ ]] ; then
     echo "We received OKAY!"
-    HTTP_RESPONSE=`curl --write-out %{http_code} --silent --output /dev/null -X POST --data '{ "embeds": [{"title": '"${CURL_SUBJECT}"', "url": "'"${ZABBIX_URL}"'", "description": '"${CURL_BODY}"', "type": "link", "thumbnail": {"url": "http://icons.iconarchive.com/icons/paomedia/small-n-flat/256/sign-check-icon.png"}}] }' -H "Content-Type: application/json" ${WEBHOOK_URL}`
+    HTTP_RESPONSE=`curl --write-out %{http_code} --silent --output /dev/null -X POST --data '{ "content": '"${CURL_SUBJECT}"', "embeds": [{"title": '"${CURL_SUBJECT}"', "url": "'"${ZABBIX_URL}"'", "description": '"${CURL_BODY}"', "type": "link", "thumbnail": {"url": "http://icons.iconarchive.com/icons/paomedia/small-n-flat/256/sign-check-icon.png"}}] }' -H "Content-Type: application/json" ${WEBHOOK_URL}`
 else
     echo "Dunno what this was: ${IN_SUBJECT}"
-    HTTP_RESPONSE=`curl --write-out %{http_code} --silent --output /dev/null -X POST --data '{ "embeds": [{"title": '"${CURL_SUBJECT}"', "url": "'"${ZABBIX_URL}"'", "description": '"${CURL_BODY}"', "type": "link", "thumbnail": {"url": "http://icons.iconarchive.com/icons/paomedia/small-n-flat/256/sign-question-icon.png"}}] }' -H "Content-Type: application/json" ${WEBHOOK_URL}`
+    HTTP_RESPONSE=`curl --write-out %{http_code} --silent --output /dev/null -X POST --data '{ "content": '"${CURL_SUBJECT}"', "embeds": [{"title": '"${CURL_SUBJECT}"', "url": "'"${ZABBIX_URL}"'", "description": '"${CURL_BODY}"', "type": "link", "thumbnail": {"url": "http://icons.iconarchive.com/icons/paomedia/small-n-flat/256/sign-question-icon.png"}}] }' -H "Content-Type: application/json" ${WEBHOOK_URL}`
 fi
 
 if [[ "${HTTP_RESPONSE}" != "204" ]] ; then
