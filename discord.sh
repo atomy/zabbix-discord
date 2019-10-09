@@ -6,7 +6,7 @@ IN_TO=$1
 IN_SUBJECT=$2
 IN_BODY=$3
 ZABBIX_URL='https://zabbix.your-domain-bleh.foo/'
-WEBHOOK_URL='https://discordapp.com/api/webhooks/630638011037515776/757kSN8DhjotNHwkY4JJYawjZOmLAQ0bwRnTBtAs38Sz8zNSXI1DuEHZRc0tp3atm44p'
+WEBHOOK_URL='https://discordapp.com/api/webhooks/xxx/yyy'
 
 json_escape() {
     printf '%s' "$1" | python -c 'import json,sys; print(json.dumps(sys.stdin.read()))'
