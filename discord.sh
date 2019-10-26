@@ -5,6 +5,8 @@ set -e
 IN_TO=$1
 IN_SUBJECT=$2
 IN_BODY=$3
+
+# tweak to your needs
 ZABBIX_URL='https://zabbix.your-domain-bleh.foo/'
 WEBHOOK_URL='https://discordapp.com/api/webhooks/xxx/yyy'
 
